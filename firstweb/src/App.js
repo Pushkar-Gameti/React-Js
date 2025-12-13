@@ -18,7 +18,7 @@ function App() {
   // let l = [1,2,3,4,5];
   // let obj = {name:"Mangru", age:70};
   let headerInfo = {
-    email: "push@gmail.com",
+    email: "pushkar@gmail.com",
     phone: "9983898084"
   }
 
