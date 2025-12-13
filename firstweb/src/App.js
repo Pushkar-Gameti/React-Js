@@ -36,7 +36,7 @@ function App() {
       <Header headerInfo={headerInfo} cname="pushkar">
         <h1>This is children props</h1>
         <FontAwesomeIcon className='text-danger' icon={['fab', 'google']} />
-        <FontAwesomeIcon className='color-green' icon={['fab', 'whatsapp']} />
+        <FontAwesomeIcon className='text-safe' icon={['fab', 'whatsapp']} />
         <FontAwesomeIcon icon={['fab', 'meta']} />
       </Header>
       {/* <div className='row'>
