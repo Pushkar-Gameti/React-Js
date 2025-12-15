@@ -1,9 +1,18 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  let [status, setStatus] = useState(false);
   return (
     <div className="App">
-      <h1>This this web</h1>
+      <button onClick={() => setStatus(!status)}>
+        {status ? 'Hide' : 'Show'}
+      </button>
+      {
+        (status)?
+        <p className='para'>This is third web</p>:
+        ''
+      }
     </div>
   );
 }
