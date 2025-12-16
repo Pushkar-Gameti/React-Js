@@ -11,10 +11,10 @@ function App() {
   return (
     <div className="App">
 
-      <button className='en' onClick={()=>setModalStatus(!modalStatus)}>Enquire Now</button>
-      <div className={`modalOverLay ${modalStatus?'modelShow':''}`}></div>
+      <button className='en' onClick={()=>setModalStatus(true)}>Enquire Now</button>
+      <div  onClick={()=>setModalStatus(false)} className={`modalOverLay ${modalStatus?'modelShow':''}`}></div>
       <div className={`ModalDiv ${modalStatus?'showModalDiv':''}`}>
-        <h3>My Website</h3>
+        <h3>My Website <span onClick={()=>setModalStatus(false)} >&times;</span> </h3>
       </div>
 
 
