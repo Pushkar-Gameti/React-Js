@@ -7,7 +7,7 @@ export default function Faqs() {
         <div className='faqouter'>
             <FaqItem />
         </div>
-    </div>
+    </div>  
   )
 }
 

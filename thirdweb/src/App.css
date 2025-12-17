@@ -32,12 +32,13 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.para{
+.para {
   background-color: red;
   padding: 10px;
   width: 1000px;
@@ -45,7 +46,7 @@
   margin: auto;
 }
 
-.menu{
+.menu {
   width: 80%;
   height: 100vh;
   text-align: left;
@@ -56,31 +57,31 @@
   transition: all 0.5s ease;
 }
 
-.activeMenu{
+.activeMenu {
   left: 0%;
   transition: all 0.5s ease;
 }
 
-.menu ul li{
+.menu ul li {
   list-style: none;
   padding: 10px 0px;
 }
 
-.micon{
+.micon {
   position: absolute;
   right: 10px;
 }
 
-.modalOverLay{
+.modalOverLay {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   display: none;
   transition: all 0.5s ease;
 }
 
-.ModalDiv{
+.ModalDiv {
   width: 320px;
   height: 320px;
   background-color: white;
@@ -89,40 +90,44 @@
   transition: all 0.5s ease;
   left: 50%;
   top: -500px;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 
 }
 
-.modelShow{
+.modelShow {
   display: block;
 }
 
-.showModalDiv{
+.showModalDiv {
   top: 50%;
 }
 
-.en{
+.en {
   position: fixed;
   right: -30px;
   transform: rotate(-270deg);
   top: 100px;
 }
-.faqouter{
+
+.faqouter {
   width: 1320px;
   margin: auto;
 }
-.faqItems{
+
+.faqItems {
   border: 1px solid black;
   margin-bottom: 20px;
 }
-.faqItems h2{
+
+.faqItems h2 {
   text-align: left;
   padding: 10px;
   cursor: pointer;
   background-color: lightgray;
   margin: 0;
 }
-.faqItems p{
+
+.faqItems p {
   text-align: left;
   height: 0px;
   transform: scaleY(0);
@@ -130,7 +135,8 @@
   margin: 0;
   transition: all 0.5s ease;
 }
-.activeAns{
+
+.activeAns {
   height: auto !important;
   transform: scaleY(1) !important;
   padding: 10px !important;
