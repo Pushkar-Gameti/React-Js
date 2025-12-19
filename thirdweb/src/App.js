@@ -1,51 +1,72 @@
+// Global CSS file import
 import './App.css';
+
+// useState hook import (state manage karne ke liye)
 import { useState } from 'react';
+
+// CSS Module import (button ke liye scoped CSS)
 import btnModule from './Button.module.css';
+
+// FAQ component import
 import Faqs from './Faqs';
-// import { questions } from './Data/questions.jsx';
 
 function App() {
+
+  // Simple show / hide text ke liye state
   let [status, setStatus] = useState(false);
+
+  // Password show / hide ke liye state
   let [pstatus, setPstatus] = useState(false);
+
+  // Mobile menu open / close ke liye state
   let [menuStatus, setMenuStatus] = useState(false);
+
+  // Modal popup open / close ke liye state
   let [modalStatus, setModalStatus] = useState(false);
-  // let [showAns, setShowAns] = useState(questions[0].id);
 
   return (
     <div className="App">
+
+      {/* FAQ section (separate component) */}
       <Faqs />
-      {/* <div>
-        <h1>Freauently Asked Questions (FAQs)</h1>
-        <div className='faqouter'>
-          {questions.map((faqItem, i) => {
-            return (
-              <div className='faqItems' key={faqItem.id}>
-                <h2 onClick={() => setShowAns(faqItem.id)}>{faqItem.question}</h2>
-                <p className={showAns===faqItem.id?'activeAns':''}>{faqItem.answer}</p>
-              </div>
-            )
-          })}
-        </div>
-      </div> */}
 
+      {/* ================= MODAL POPUP ================= */}
 
+      {/* Enquire button – modal open karega */}
+      <button className='en' onClick={() => setModalStatus(true)}>
+        Enquire Now
+      </button>
 
+      {/* 
+        Modal overlay
+        click karne par modal close ho jayega
+      */}
+      <div
+        onClick={() => setModalStatus(false)}
+        className={`modalOverLay ${modalStatus ? 'modelShow' : ''}`}
+      ></div>
 
-
-
-
-
-
-      <button className='en' onClick={() => setModalStatus(true)}>Enquire Now</button>
-      <div onClick={() => setModalStatus(false)} className={`modalOverLay ${modalStatus ? 'modelShow' : ''}`}></div>
+      {/* 
+        Modal box
+        modalStatus true hone par visible hota hai
+      */}
       <div className={`ModalDiv ${modalStatus ? 'showModalDiv' : ''}`}>
-        <h3>My Website <span onClick={() => setModalStatus(false)} >&times;</span> </h3>
+        <h3>
+          My Website
+          {/* Cross icon – modal close */}
+          <span onClick={() => setModalStatus(false)}>&times;</span>
+        </h3>
       </div>
 
+      {/* ================= MOBILE MENU ================= */}
 
+      {/* Menu icon button */}
       <button className='micon' onClick={() => setMenuStatus(!menuStatus)}>
+        {/* Open hone par cross, warna hamburger icon */}
         {menuStatus ? <span>&times;</span> : <span>&#9776;</span>}
       </button>
+
+      {/* Side menu */}
       <div className={`menu ${menuStatus ? 'activeMenu' : ''}`}>
         <ul>
           <li>Home</li>
@@ -54,21 +75,39 @@ function App() {
           <li>Services</li>
         </ul>
       </div>
-      <input type={pstatus ? 'text' : 'password'} />
-      <button onClick={() => setPstatus(!pstatus)}>
-        {pstatus ? 'Hide' : 'Show'}</button>
-      <br></br>
 
+      {/* ================= PASSWORD SHOW / HIDE ================= */}
+
+      {/* Input type state ke hisab se change hota hai */}
+      <input type={pstatus ? 'text' : 'password'} />
+
+      {/* Password toggle button */}
+      <button onClick={() => setPstatus(!pstatus)}>
+        {pstatus ? 'Hide' : 'Show'}
+      </button>
+
+      <br />
+
+      {/* ================= CSS MODULE BUTTONS ================= */}
+
+      {/* CSS module se styling */}
       <button className={btnModule.error}>error</button>
       <button className={btnModule.warning}>warning</button>
+
+      {/* ================= CONDITIONAL RENDERING ================= */}
+
+      {/* Paragraph show / hide button */}
       <button onClick={() => setStatus(!status)}>
         {status ? 'Hide' : 'Show'}
       </button>
+
+      {/* Agar status true hai tab hi paragraph dikhega */}
       {
-        (status) ?
-          <p className='para'>This is third web</p> :
-          ''
+        status
+          ? <p className='para'>This is third web</p>
+          : ''
       }
+
     </div>
   );
 }
