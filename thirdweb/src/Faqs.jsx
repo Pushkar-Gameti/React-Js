@@ -61,7 +61,6 @@ function FaqItem({ itemDetails }) {
             <p className={currentId === itemsData.id ? 'activeAns' : ''}>
                 {itemsData.answer}
             </p>
-
         </div>
     )
 }

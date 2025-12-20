@@ -10,6 +10,11 @@ import btnModule from './Button.module.css';
 // FAQ component import
 import Faqs from './Faqs';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 function App() {
 
   // Simple show / hide text ke liye state
@@ -24,8 +29,29 @@ function App() {
   // Modal popup open / close ke liye state
   let [modalStatus, setModalStatus] = useState(false);
 
+  let n=["ram", "shyam", "mohan", "sohan","rahul"];
+
+  let showMsg=()=>{
+    // toast.info("hello from cheatCode");
+    // toast.success("success msg");
+    // toast.error("error msg");
+    toast.warning("warning msg");
+  }
   return (
     <div className="App">
+      <ToastContainer />
+
+      <button onClick={showMsg}>Click Me</button>
+
+
+
+      <ul>
+        {n.map((items,i)=>{
+          return(
+            <li key={i}>{items}</li>
+          )
+        })}
+      </ul>
 
       {/* FAQ section (separate component) */}
       <Faqs />
