@@ -81,5 +81,4 @@ function toTitleCase(str) {
     .join(" ");
 }
 
-
 export default App;
