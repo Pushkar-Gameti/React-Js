@@ -81,3 +81,33 @@ body {
   padding: 0;
   background-color: #f0f2f5;
 }
+
+.tabsOuter{
+  width: 1170px;
+  margin: auto;
+}
+.tabsOuter ul{
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  gap: 10px;
+}
+.tabsOuter ul li button{
+  background: white;
+  color: #343e40;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 20px;
+  margin-right: 10px;
+  font-weight: 600; 
+}
+.tabsOuter ul li button:hover{
+  background: rgb(59, 187, 209);
+  cursor: pointer;
+  color: white;
+}
+.activeButton{
+  background: rgb(59, 187, 209)!important;
+  color: white !important;
+}

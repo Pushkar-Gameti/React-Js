@@ -2,9 +2,16 @@ import './App.css';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { tabs } from './Data/tabs';
 
 function App() {
   let [todolist, settodolist] = useState([]);
+  let [activeTabs, setactiveTabs] = useState(0);
+  let [activeContent, setactiveContent] = useState(tabs[0]);
+  let changeData = (index) => {
+    setactiveTabs(index);
+    setactiveContent(tabs[index]);
+  }
   let showMsg = () => {
     toast.info("Your Name is already exists");
   }
@@ -37,6 +44,26 @@ function App() {
   })
   return (
     <div className="App">
+
+      <div className='tabsOuter'>
+        <h1>Law Prep Vision Mission and Values</h1>
+        <ul>
+          {tabs.map((tabsItems, index) => {
+            return (
+              <li>
+                <button
+                  onClick={() => changeData(index)}
+                  className={activeTabs === index ? 'activeButton' : null}
+                >
+                  {tabsItems.title}
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+        {activeContent !== undefined ? <p>{activeContent.description}</p> : null}
+      </div>
+
       <ToastContainer />
       <h1>ToDo List</h1>
       <form onSubmit={saveToDoList}>
@@ -47,8 +74,11 @@ function App() {
       <div className='outerDiv'>
         <ul>
           {list}
+
         </ul>
       </div>
+
+
     </div>
   );
 }
