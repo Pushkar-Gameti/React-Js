@@ -4,10 +4,15 @@ import './index.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Course from './pages/Course';
+import Blog from './pages/Blog';
+import BlogDetails from './pages/BlogDetails';
+
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Error404 from './pages/Error404';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let allRoutes = createBrowserRouter([
@@ -16,12 +21,24 @@ let allRoutes = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/about-us",
+    path: "about-us",
     element: <About />,
   },
   {
-    path: "/course",
+    path: "course",
     element: <Course />,
+  },
+  {
+    path: "blog",
+    element: <Blog />,
+  },
+  {
+    path: "blog/:id",
+    element: <BlogDetails />,
+  },
+  {
+    path: "*",
+    element: <Error404 />,
   }
 ]);
 
