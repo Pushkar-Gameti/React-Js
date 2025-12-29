@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import icon from './Images/weather-svgrepo-com.svg';
+
 
 function App() {
   let [city, setCity] = useState("");
   const apiKey = process.env.REACT_APP_WEATHER_KEY;
   let [wDetails, setWDetails] = useState();
   let [isLoading, setIsLoading] = useState(false);
+  let [counter, setCounter] = useState(1)
   let getData = (e) => {
     e.preventDefault();
     setIsLoading(true)
@@ -25,8 +27,18 @@ function App() {
       });
     setCity("");
   }
+
+  let changeCounter=()=>{
+    setCounter(counter+1)
+  }
+
+  useEffect(()=>{
+    console.log("hello")
+  },[counter])
   return (
     <div className='w-[100%] h-[100vh] bg-[#4aacb1]'>
+      {counter}
+      <button onClick={changeCounter}>Count</button>
       <div className='max-w-[1320px] mx-auto'>
         <div className='flex'>
           <img src={icon} alt="icon" className='w-[50px]' />
